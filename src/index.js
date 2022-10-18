@@ -20,6 +20,8 @@ function searchHandler(event) {
   fetchCountries(name)
     .then(data => {
       if (data.length > 10) {
+        refListCountry.innerHTML = '';
+        refCountryInfo.innerHTML = '';
         Notify.info(
           'Too many matches found. Please enter a more specific name.'
         );
@@ -32,6 +34,8 @@ function searchHandler(event) {
       }
     })
     .catch(error => {
+      refListCountry.innerHTML = '';
+      refCountryInfo.innerHTML = '';
       Notify.failure('Oops, there is no country with that name');
       //   console.log(error);
     });
